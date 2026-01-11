@@ -3,9 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Developer Portfolio</title>
+    <title>Jannatul Mawa | Aspiring UI/UX Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide-react/0.263.1/lucide-react.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        .gradient-text { background: linear-gradient(90deg, #4F46E5, #9333EA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; padding: 1rem; }
+        .modal.active { display: flex; }
+    </style>
 </head>
-<body>
-    
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tighter gradient-text">JM.DESIGN</span>
+            <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                <a href="#home" class="hover:text-indigo-600 transition">Home</a>
+                <a href="#work" class="hover:text-indigo-600 transition">Work</a>
+                <a href="#skills" class="hover:text-indigo-600 transition">Skills</a>
+                <a href="#contact" class="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest text-indigo-600 uppercase bg-indigo-50 rounded-full">
+                Available for Internships
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+                Designing experiences that <span class="gradient-text">spark joy.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Hi, I'm <span class="font-semibold text-slate-900">Jannatul Mawa</span>. A Computer Science graduate turned UI/UX Designer based in Dhaka, obsessed with accessibility, clean grids, and user-centered logic.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <a href="#work" class="w-full md:w-auto px-8 py-4 bg-slate-900 text-white rounded-xl font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-200">View My Case Studies</a>
+                <a href="mailto:mawamukta1234@gmail.com" class="w-full md:w-auto px-8 py-4 bg-white border border-slate-200 rounded-xl font-semibold hover:bg-slate-50 transition">Let's Chat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-4">Featured Projects</h2>
+                <p class="text-slate-500">A deep dive into how I solve problems through design.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="card-hover group cursor-pointer border border-slate-100 rounded-3xl overflow-hidden bg-slate-50" onclick="openModal('project-blood')">
+                    <div class="aspect-video bg-indigo-100 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&q=80&w=800" alt="Blood Bank UI" class="group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Blood Bank Management</h3>
+                                <p class="text-slate-600 line-clamp-2">Optimizing donor-recipient connection with an empathy-driven interface.</p>
+                            </div>
+                            <span class="p-2 bg-white rounded-lg border border-slate-200">
+                                <i data-lucide="external-link" class="w-5 h-5 text-indigo-600"></i>
+                            </span>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium">UX Research</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium">Figma</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card-hover group cursor-pointer border border-slate-100 rounded-3xl overflow-hidden bg-slate-50" onclick="openModal('project-book')">
+                    <div class="aspect-video bg-emerald-100 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800" alt="Bookstore UI" class="group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Online Bookstore App</h3>
+                                <p class="text-slate-600 line-clamp-2">Bringing the tactile joy of book browsing to a minimalist digital storefront.</p>
+                            </div>
+                            <span class="p-2 bg-white rounded-lg border border-slate-200">
+                                <i data-lucide="external-link" class="w-5 h-5 text-indigo-600"></i>
+                            </span>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium">Product Design</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium">Django</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-medium">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">My Toolkit & Philosophy</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    I bridge the gap between complex engineering and human-centered design. With a CS background, I don't just design pretty screens—I design systems that are technically feasible and accessible.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 p-2 bg-indigo-600 rounded-lg text-white">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">User-First Always</h4>
+                            <p class="text-sm text-slate-500">Every button and pixel should solve a real user pain point.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 p-2 bg-purple-600 rounded-lg text-white">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Rapid Prototyping</h4>
+                            <p class="text-sm text-slate-500">Fast iterations in Figma to validate ideas early.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <p class="font-bold text-lg mb-2">Design</p>
+                    <ul class="text-sm text-slate-500 space-y-1">
+                        <li>Figma</li>
+                        <li>Adobe Photoshop</li>
+                        <li>Illustrator</li>
+                        <li>Canva</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <p class="font-bold text-lg mb-2">Technical</p>
+                    <ul class="text-sm text-slate-500 space-y-1">
+                        <li>HTML5 / CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Bootstrap / Tailwind</li>
+                        <li>PHP / Django</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <p class="font-bold text-lg mb-2">Certifications</p>
+                    <ul class="text-sm text-slate-500 space-y-1">
+                        <li>Digital Marketing (WIT)</li>
+                        <li>AWS Cloud basics</li>
+                        <li>Research Assistant (ISU)</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-indigo-600 rounded-2xl shadow-sm text-white flex flex-col justify-center items-center text-center">
+                    <p class="text-3xl font-bold">20+</p>
+                    <p class="text-xs uppercase tracking-widest opacity-80">Projects Completed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="py-20 px-6 bg-slate-900 text-white text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6">Let's build something together.</h2>
+            <p class="text-slate-400 mb-10">Currently open to intern roles and freelance opportunities.</p>
+            <div class="flex justify-center space-x-6 mb-12">
+                <a href="https://linkedin.com/in/jannatul-mawa-mukta" class="hover:text-indigo-400 transition">LinkedIn</a>
+                <a href="https://github.com/Jannatulmawa20" class="hover:text-indigo-400 transition">GitHub</a>
+                <a href="mailto:mawamukta1234@gmail.com" class="hover:text-indigo-400 transition">Email</a>
+            </div>
+            <p class="text-xs text-slate-500">© 2024 Jannatul Mawa. Built with passion & clean code.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="project-blood" class="modal" onclick="closeModal(event)">
+        <div class="bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl p-8 shadow-2xl" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold">Blood Bank Management System</h2>
+                <button onclick="document.getElementById('project-blood').classList.remove('active')" class="text-slate-400 hover:text-slate-900">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&q=80&w=1200" class="w-full rounded-2xl mb-8">
+            <div class="space-y-6">
+                <div>
+                    <h4 class="font-bold text-indigo-600 uppercase text-xs tracking-widest mb-2">The Challenge</h4>
+                    <p class="text-slate-600">Most blood bank apps are cluttered. I asked: "Why do users struggle in emergencies?" I found hierarchy was the main issue.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-indigo-600 uppercase text-xs tracking-widest mb-2">The Solution</h4>
+                    <p class="text-slate-600">Created a clean, high-contrast dashboard using Bootstrap. Simplified the registration flow with progress indicators, reducing drop-off rates by 30% in user testing.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-2xl">
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase font-bold">Role</p>
+                        <p class="font-semibold">UI/UX Designer & Dev</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase font-bold">Year</p>
+                        <p class="font-semibold">2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-book" class="modal" onclick="closeModal(event)">
+        <div class="bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl p-8 shadow-2xl" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold">Online Bookstore App</h2>
+                <button onclick="document.getElementById('project-book').classList.remove('active')" class="text-slate-400 hover:text-slate-900">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=1200" class="w-full rounded-2xl mb-8">
+            <div class="space-y-6">
+                <div>
+                    <h4 class="font-bold text-indigo-600 uppercase text-xs tracking-widest mb-2">The "Why"</h4>
+                    <p class="text-slate-600">Personalization boosts engagement. I designed a card-based product grid that makes book discovery feel effortless and fun.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-indigo-600 uppercase text-xs tracking-widest mb-2">The Outcome</h4>
+                    <p class="text-slate-600">Peer testing showed 20% faster navigation compared to standard templates. Integrated micro-interactions to provide delight during the checkout process.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-2xl">
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase font-bold">Tools</p>
+                        <p class="font-semibold">Figma, Django, JS</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-400 uppercase font-bold">Focus</p>
+                        <p class="font-semibold">Interaction Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Modal Logic
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(e) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(m => m.classList.remove('active'));
+            document.body.style.overflow = 'auto';
+        }
+    </script>
 </body>
 </html>
